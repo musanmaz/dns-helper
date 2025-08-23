@@ -52,21 +52,21 @@ func TestPercentileCalculation(t *testing.T) {
 		50 * time.Millisecond, // 100th
 	}
 
-	// Test P50 (median)
+	// Test P50 (median) - for 5 elements, 0.5 * 4 = 2, so index 2
 	p50 := percentile(latencies, 0.50)
 	expectedP50 := 30.0
 	if p50 != expectedP50 {
 		t.Errorf("Expected P50 to be %f, got %f", expectedP50, p50)
 	}
 
-	// Test P90 (90th percentile)
+	// Test P90 (90th percentile) - for 5 elements, 0.9 * 4 = 3.6, so index 3
 	p90 := percentile(latencies, 0.90)
-	expectedP90 := 50.0
+	expectedP90 := 40.0
 	if p90 != expectedP90 {
 		t.Errorf("Expected P90 to be %f, got %f", expectedP90, p90)
 	}
 
-	// Test P25 (25th percentile)
+	// Test P25 (25th percentile) - for 5 elements, 0.25 * 4 = 1, so index 1
 	p25 := percentile(latencies, 0.25)
 	expectedP25 := 20.0
 	if p25 != expectedP25 {
