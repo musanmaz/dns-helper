@@ -1,5 +1,5 @@
 APP = dns-helper
-VERSION ?= 0.0.1
+VERSION ?= 0.0.2
 BUILD_TIME = $(shell date -u '+%Y-%m-%d_%H:%M:%S')
 LDFLAGS = -ldflags "-X main.version=$(VERSION) -X main.buildTime=$(BUILD_TIME)"
 

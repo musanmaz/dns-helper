@@ -7,7 +7,7 @@
 > - **Linux**: `resolvectl` / `nmcli` / or `/etc/resolv.conf` (sudo)
 > - **Windows**: PowerShell `Set-DnsClientServerAddress` (Administrator)
 
-**Version**: 0.0.1
+**Version**: 0.0.2
 
 ## Features
 
