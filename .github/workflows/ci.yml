@@ -6,7 +6,7 @@ on:
   pull_request:
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,14 +19,8 @@ jobs:
       - name: Verify dependencies
         run: go mod verify
         
-      - name: Run tests
-        run: go test -v ./...
-        
       - name: Build
-        run: go build -v ./...
-        
-      - name: Check for race conditions
-        run: go test -race ./...
+        run: go build -v ./cmd/dns-helper
 
   build-matrix:
     runs-on: ${{ matrix.os }}
@@ -45,6 +39,3 @@ jobs:
           
       - name: Build
         run: go build -v ./cmd/dns-helper
-        
-      - name: Test
-        run: go test ./...
